@@ -5,7 +5,7 @@ operations, file-based data persistence, and token-based user authentication.
 
 ## SETUP instructions | Testing Endpoints
 
-Installed Packages- `express jsonwebtoken bcryptjs uuid`
+Installed Packages- `express jsonwebtoken bcryptjs uuid fs`
 
 -First of all you must need to have [Nodejs](https://nodejs.org/en) installed in your system
 1. Run the command on Vs code or other terminal then `npm install`  to install packages then `node app.js` to start the application
@@ -62,32 +62,32 @@ Installed Packages- `express jsonwebtoken bcryptjs uuid`
 ## Working 
 
    1. register. Registered username cannot be reused
-          ![Register](usereexists.JPG)
+          ![register](./images/Userexists.JPG)
 
    2.  login. Recieve token after login
-          ![logintoken](logintoken.JPG)   
+          ![logintoken](./images/logintoken.JPG)   
         if login info is incorrect then get message 'invalid credentials'
-          ![invalidcred](invalidcred.JPG)
+          ![invalidcred](./images/invalidcred.JPG)
    3.  Without authoriztion you cannot get list of all books
-         ![withoutauth](withoutauthget.JPG)       
+         ![withoutauth](./images/withoutauthget.JPG)       
        With auth you can get list of all books by providing Bearer Token
-          ![Getallbooks](withauthgetall.JPG)
+          ![Getallbooks](./images/withauthgetall.JPG)
    4.   You can get a book by its UUID
-          ![Getbbokbyid](getbookbyid.JPG)
+          ![Getbbokbyid](./images/getbookbyid.JPG)
 
    5.  if the data type while adding book is incorrect book wont be added.it will throw an error
-          ![Type Error](addbookdatatype.JPG)
+          ![Type Error](./images/addbookdatatype.JPG)
         ```JSON  
         {
             "error": "Invalid book data. title, author, and genre must be strings. publishedYear must be a number."
         }
         ```
         if the data type is correct then book will be added successfully
-        ![Added book](./addbookssuccess.JPG)
+        ![Added book](./images/addbookssuccess.JPG)
     6. You can only update your youn books i.e a user can only update books added by him/her using respective token
-        ![updatebook](./updateownbk.JPG)
+        ![updatebook](./images/updateownbk.JPG)
     7. You can only delete your youn books i.e a user can only delete books added by him/her using respective token
-        ![deletebook](./deleteown.JPG)
+        ![deletebook](./images/deleteown.JPG)
 
 
 
