@@ -105,7 +105,6 @@ router.put('/:id', auth, async (req, res) => {
     if (genre) book.genre = genre;
       if (publishedYear) book.publishedYear = publishedYear;
 
-
   books[index] = book;
   await writeBooks(books);
   res.json(books[index]);
