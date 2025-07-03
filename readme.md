@@ -7,8 +7,8 @@ operations, file-based data persistence, and token-based user authentication.
 
 Installed Packages- `express jsonwebtoken bcryptjs uuid fs`
 
--First of all you must need to have [Nodejs](https://nodejs.org/en) installed in your system
-1. Run the command on Vs code or other terminal then `npm install`  to install packages then `node app.js` to start the application
+-First of all you must need to have [Nodejs](https://nodejs.org/en) installed in your system,then clone this repo
+1. Cd in bookstore-api directory Run the command on Vs code or other terminal then `npm install`  to install packages then `node app.js` to start the application
 2. You may use POSTMAN or THUNDERCLIENT to test The API and all of the requests.
 3. Test the API endpoints and requests respectively using Postman
    You need to be logged in to view the books.
