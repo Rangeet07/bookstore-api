@@ -22,6 +22,7 @@ async function writeBooks(books) {
   await fs.writeFile(BOOKS_FILE, JSON.stringify(books, null, 2));
 }
 
+// validation of book input function
 function validateBookInput(data) {
   const { title, author, genre, publishedYear } = data;
 
@@ -58,7 +59,7 @@ router.post('/', auth, async (req, res) => {
       error: 'Invalid book data. title, author, and genre must be strings. publishedYear must be a number.'
     });
   }
-  
+
   const books = await readBooks();
   
   const newBook = {  id: uuidv4(), title, author, genre, publishedYear, userId: req.user.username };
@@ -80,7 +81,7 @@ router.put('/:id', auth, async (req, res) => {
 //   books[index] = { ...books[index], ...req.body };
   const book = books[index];
 
-  // ✅ Check ownership
+  // Check ownership
   if (book.userId !== req.user.username) {
     return res.status(403).json({ error: 'You can only update your own books' });
   }
@@ -118,7 +119,7 @@ router.delete('/:id', auth, async (req, res) => {
     return res.status(404).json({ error: 'Book not found' });
   }
 
-  // ✅ Check if the logged-in user is the owner
+  //  Check if the logged-in user is the owner
   if (book.userId !== req.user.username) {
     return res.status(403).json({ error: 'You can only delete your own books' });
   }
