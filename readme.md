@@ -42,17 +42,8 @@ Installed Packages- `express jsonwebtoken bcryptjs uuid`
     "userId": "ID of user who added the book"
     }
     ```
-     ![Added book](./addbookssuccess.JPG)
 
-     ### if the data type while adding book is incorrect book wont be added.it will throw an error
-    ```JSON
-     {
-    "error": "Invalid book data. title, author, and genre must be strings. publishedYear must be a number."
-    }
-    ```
-    ![Type Error](addbookdatatype.JPG)
-
-   1. Update a book by ID(PUT)-`http://localhost:3000/api/books/:id`
+   4. Update a book by ID(PUT)-`http://localhost:3000/api/books/:id`
       Send this PUT request with id of the book you want to update and 
       recieve the required book in the response and update it accordingly.Only user who added the book can update that book.
     ``` JSON
@@ -63,10 +54,42 @@ Installed Packages- `express jsonwebtoken bcryptjs uuid`
     "publishedYear": "Number",
     }
     ```
-  1. Delete a book by ID(DELETE)- `http://localhost:3000/api/books/:id`
+  5. Delete a book by ID(DELETE)- `http://localhost:3000/api/books/:id`
      Send this DELETE request with id of the book you want to delete.
      Only user who added the book can delete it
-   
+
+
+## Working 
+
+   1. register. Registered username cannot be reused
+          ![Register](usereexists.JPG)
+
+   2.  login. Recieve token after login
+          ![logintoken](logintoken.JPG)   
+        if login info is incorrect then get message 'invalid credentials'
+          ![invalidcred](invalidcred.JPG)
+   3.  Without authoriztion you cannot get list of all books
+         ![withoutauth](withoutauthget.JPG)       
+       With auth you can get list of all books by providing Bearer Token
+          ![Getallbooks](withauthgetall.JPG)
+   4.   You can get a book by its UUID
+          ![Getbbokbyid](getbookbyid.JPG)
+
+   5.  if the data type while adding book is incorrect book wont be added.it will throw an error
+          ![Type Error](addbookdatatype.JPG)
+        ```JSON  
+        {
+            "error": "Invalid book data. title, author, and genre must be strings. publishedYear must be a number."
+        }
+        ```
+        if the data type is correct then book will be added successfully
+        ![Added book](./addbookssuccess.JPG)
+    6. You can only update your youn books i.e a user can only update books added by him/her using respective token
+        ![updatebook](./updateownbk.JPG)
+    7. You can only delete your youn books i.e a user can only delete books added by him/her using respective token
+        ![deletebook](./deleteown.JPG)
+
+
 
 ## Contributing
 
